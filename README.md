@@ -2,6 +2,12 @@
 
 This is a ulr shortener app built with FASTAPI
 
+Here’s a summary of the URL shortener’s API endpoints:
+| Endpoints | Http verb | Request body | Action
+| --- | --- | --- | ---|
+| / | GET | | Returns a Welcome message string
+| /url | PoST | Your target url | Returns the shortened Url in the following string format {"target_url": string, "is_active": bool, "clicks": int, "url": string, "admin_url":string}
+
 Follow these commands to run the project on your local machine :
 
 Open your terminal
