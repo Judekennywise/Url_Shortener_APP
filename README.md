@@ -6,7 +6,7 @@ Here’s a summary of the URL shortener’s API endpoints:
 | Endpoints | Http verb | Request body | Action
 | --- | --- | --- | ---|
 | / | GET | | Returns a Welcome message string
-| /url | PoST | Your target url | Returns the shortened Url in the following string format {"target_url": string, "is_active": bool, "clicks": int, "url": string, "admin_url":string}
+| /url | POST | Your target url | Returns the shortened Url in the following string format {"target_url": string, "is_active": bool, "clicks": int, "url": string, "admin_url":string}
 | /admin/{secret_key} | GET | | Returns Admin info in the followin format {"target_url": string, "is_active": bool, "clicks": int, "url": string, "admin_url":string}
 | /admin/{secret_key}	| DELETE | | Deletes the shortened url ny setting "is_active" to false
 
