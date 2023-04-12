@@ -1,6 +1,6 @@
 # Url_Shortener_APP
 
-This is a ulr shortener app built with FASTAPI
+This is a URL shortener app built with FASTAPI
 
 Here’s a summary of the URL shortener’s API endpoints:
 | Endpoints | Http verb | Request body | Action
@@ -8,7 +8,7 @@ Here’s a summary of the URL shortener’s API endpoints:
 | / | GET | | Returns a Welcome message string
 | /url | POST | Your target url | Returns the shortened Url in the following string format {"target_url": string, "is_active": bool, "clicks": int, "url": string, "admin_url":string}
 | /admin/{secret_key} | GET | | Returns Admin info in the followin format {"target_url": string, "is_active": bool, "clicks": int, "url": string, "admin_url":string}
-| /admin/{secret_key}	| DELETE | | Deletes the shortened url ny setting "is_active" to false
+| /admin/{secret_key}	| DELETE | | Deletes the shortened url by setting "is_active" to false
 
 Follow these commands to run the project on your local machine :
 
