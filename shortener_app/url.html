@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Example Frontend</title>
+    </head>
+    <body>
+        <form id="example-form">
+            <input type="text" id="url_input" placeholder="Enter target url">
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="output"></div>
+
+        <script>
+            const form = document.getElementById('example-form');
+            const url_Input = document.getElementById('url_input');
+            const output = document.getElementById('output');
+
+            form.addEventListener('submit', async event => {
+                event.preventDefault();
+
+                const target_url = url_Input.value;
+
+                try {
+                    const response = await fetch('http://127.0.0.1:8000/url', {
+                        method: 'POST',
+                        headers: {
+                            Accept: "application/json",
+                            'Content-Type': 'application/json;charset=UTF-8',
+                        },
+                        body: JSON.stringify({target_url}),
+                        
+                    });
+                    console.log(JSON.stringify({target_url}))
+
+                    const data = await response.json();
+
+                    const target = data.target_url
+                    const is_active= data.is_active
+                    const clicks = data.clicks
+                    const url_link = data.url
+                    const admin_url = data.admin_url
+                    output.innerHTML = 
+                            `<p>Target url: ${target}</p>
+                            <p>Is active: ${is_active}</p>
+                            <p>Clicks: ${clicks}</p>
+                            <p>Url: ${url_link}</p>
+                            <p>Admin Url: ${admin_url}</p>`
+                          ;
+                } catch (error) {
+                    console.error(error);
+                }
+                
+                
+            });
+        </script>
+    </body>
+</html>
