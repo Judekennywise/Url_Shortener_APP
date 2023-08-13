@@ -48,7 +48,8 @@ def forward_to_target_url(
         request: Request,
         db: Session = Depends(get_db)
     ):
-    if db_url := crud.get_db_url_by_key(db=db, url_key=url_key):
+    db_url = crud.get_db_url_by_key(db=db, url_key=url_key)
+    if db_url:
         crud.update_db_clicks(db=db, db_url=db_url)
         return RedirectResponse(db_url.target_url)
     else:
