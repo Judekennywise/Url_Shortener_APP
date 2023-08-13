@@ -63,7 +63,8 @@ def forward_to_target_url(
 def get_url_info(
     secret_key: str, request: Request, db: Session = Depends(get_db)
 ):
-    if db_url := crud.get_db_url_by_secret_key(db, secret_key=secret_key):
+    db_url= crud.get_db_url_by_secret_key(db, secret_key=secret_key)
+    if db_url :
         return get_admin_info(db_url)
     else:
         raise_not_found(request)
@@ -97,7 +98,8 @@ def create_url(url: schemas.URLBase, db: Session = Depends(get_db)):
 def delete_url(
     secret_key: str, request: Request, db: Session = Depends(get_db)
 ):
-    if db_url := crud.deactivate_db_url_by_secret_key(db, secret_key=secret_key):
+    db_url= crud.deactivate_db_url_by_secret_key(db, secret_key=secret_key)
+    if db_url :
         message = f"Successfully deleted shortened URL for '{db_url.target_url}'"
         return {"detail": message}
     else:
