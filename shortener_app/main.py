@@ -2,12 +2,12 @@ import validators
 from fastapi import Depends, FastAPI, HTTPException, Request
 from sqlalchemy.orm import Session
 from starlette.datastructures import URL
-from . import models, schemas
-from .database import SessionLocal, engine
+from shortener_app import models, schemas
+from shortener_app.database import SessionLocal, engine
 from fastapi.responses import RedirectResponse
-from . import crud, models, schemas
-from .config import get_settings
-from . import schemas
+from shortener_app import crud, models, schemas
+from shortener_app.config import get_settings
+from shortener_app import schemas
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
