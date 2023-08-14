@@ -2,7 +2,7 @@ import secrets
 import string
 from sqlalchemy.orm import Session
 
-from . import crud
+from crud import *
 
 def create_random_key(length: int = 5) -> str:
     chars = string.ascii_uppercase + string.digits
@@ -10,6 +10,6 @@ def create_random_key(length: int = 5) -> str:
 
 def create_unique_random_key(db: Session) -> str:
     key = create_random_key()
-    while crud.get_db_url_by_key(db, key):
+    while get_db_url_by_key(db, key):
         key = create_random_key()
     return key
